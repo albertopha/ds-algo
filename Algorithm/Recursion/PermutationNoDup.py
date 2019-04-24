@@ -28,7 +28,7 @@ class PermutationNoDup:
                 self.permutation_rec(s[0:i]+s[i+1:], new_curr, perm)
 
     def permutation_rec(self, s, start, end, perm):
-        if start == end:
+        if start == end and ''.join(s) not in perm:
             perm.append(''.join(s))
             return
 
@@ -40,7 +40,7 @@ class PermutationNoDup:
 
 if __name__ == '__main__':
     pnd = PermutationNoDup()
-    perms1 = pnd.permutation_without_dup('abc')
+    perms1 = pnd.permutation_without_dup('aba')
     perms2 = pnd.permutation_without_dup('abcd')
 
     print(perms1)
