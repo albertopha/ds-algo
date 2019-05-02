@@ -1,4 +1,4 @@
-class QuickSort():
+class QuickSort:
     def __init__(self):
         return
 

@@ -1,4 +1,5 @@
-class Coins():
+#! - draw recursion tree to see overlap
+class Coins:
     def __init__(self):
         return
 
