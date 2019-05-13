@@ -1,3 +1,4 @@
+#!
 class LongestPalindrome(object):
     def longest_palindrome_opt(self, s):
         palindrome = ''
