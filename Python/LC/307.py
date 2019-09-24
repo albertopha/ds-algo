@@ -1,4 +1,6 @@
 # ! - J (Fenwick's tree, segment tree)
+# https://github.com/mission-peace/interview/blob/master/src/com/interview/tree/FenwickTree.java
+# https://github.com/mission-peace/interview/blob/master/src/com/interview/tree/SegmentTree.java
 from typing import List
 
 
