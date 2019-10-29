@@ -4,6 +4,13 @@ from typing import List
 
 class Solution:
     def leastInterval(self, tasks: List[str], n: int) -> int:
+        """
+        Best Answer:
+        counter = list(collections.Counter(tasks).values())
+                maxx = max(counter)
+                numOfMax = counter.count(maxx)
+                return max(len(tasks), (maxx - 1) * (n + 1) + numOfMax)
+        """
         if tasks is None or len(tasks) == 0:
             return 0
 
@@ -27,3 +34,4 @@ class Solution:
             return max(len(tasks), n * (max_value - 1) + max_value)
         else:
             return n * (max_value - 1) + max_value + count_max_values
+
