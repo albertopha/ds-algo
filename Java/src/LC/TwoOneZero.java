@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
 
-public class CourseSchedule2 {
+class CourseSchedule2 {
 	public int[] findOrder(int numCourses, int[][] prerequisites) {
 		if (prerequisites.length < numCourses) {
 			return new int[0];

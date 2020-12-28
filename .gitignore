@@ -1,3 +1,6 @@
 /.idea
 /venv
 .vscode/
+/Java/src/.idea
+/Java/src/out
+/Java/src/ds-algo.iml

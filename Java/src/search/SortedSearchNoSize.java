@@ -1,7 +1,7 @@
 package search;
 
 public class SortedSearchNoSize {
-	public static int sortedSearchNoSize(Listy list, int x) {
+	public static int sortedSearchNoSize(int[] list, int x) {
 		int start = 0;
 		int end = x;
 		
