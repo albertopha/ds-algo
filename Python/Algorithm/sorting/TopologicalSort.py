@@ -47,6 +47,38 @@ class TopologicalSort(object):
 
         return graph
 
+    def topologicalSortBFS(self, vertices, edges):
+        sorted_order = []
+        if vertices <= 0:
+            return sorted_order
+
+        # Initialize the graph
+        in_degree = {_: 0 for _ in range(vertices)}
+        graph = {_: [] for _ in range(vertices)}
+
+        # Create graph
+        for source, target in edges:
+            graph[source].append(target)
+            in_degree[target] += 1
+
+        # Enqueue nodes with zero in degree
+        queue = deque()
+        for node in in_degree:
+            if in_degree[node] == 0:
+                queue.append(node)
+
+        while queue:
+            vertex = queue.popleft()
+            sorted_order.insert(0, vertex)
+
+            for target in graph[vertex]:
+                in_degree[target] -= 1
+                if in_degree[target] == 0:
+                    queue.append(target)
+
+        if len(sorted_order) != vertices:
+            return []
+        return sorted_order
 if __name__ == "__main__":
     ts = TopologicalSort()
     vertices = 5
@@ -59,4 +91,10 @@ if __name__ == "__main__":
     
     vertices = 7
     edges = [[6, 4], [6, 2], [5, 3], [5, 4], [3, 0], [3, 1], [3, 2], [4, 1]]
+        
+        
+        
+        
+        
+        
     print(ts.topologicalSort(vertices, edges))
