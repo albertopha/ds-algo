@@ -45,6 +45,29 @@ class Solution(object):
 
         return total_water
 
+    def lowerEnvelop(self, height):
+        """
+        Using two pointers
+        https://www.youtube.com/watch?v=XqTBrQYYUcc&t=4s
+        
+        T: O(N)
+        S: O(1)
+        """
+        i, j = 0, len(height) - 1
+        left_max, right_max = 0, 0
+        
+        rain = 0
+        while i < j:
+            if height[i] <= height[j]:
+                left_max = max(left_max, height[i])
+                rain += left_max - height[i]
+                i += 1
+            else:
+                right_max = max(right_max, height[j])
+                rain += right_max - height[j]
+                j -= 1
+        
+        return rain
 
 if __name__ == '__main__':
     s = Solution()
