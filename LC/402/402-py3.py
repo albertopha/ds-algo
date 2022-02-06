@@ -1,5 +1,12 @@
 """
 -----------------------------------
+1. Use stack
+2. If the current value in the stack
+   greater than the current value,
+   remove it from the stack.
+3. Keep adding the new value.
+4. Handle some edge cases (ie. leading zeros)
+-----------------------------------
 stack = [1,2,1,9]
 stack = [2,0,0]
 
@@ -40,13 +47,16 @@ class Solution:
         
         for i in range(1, len(num)):
             val = int(num[i])
+            # Handles (1234567890, k = 9)
             while k > 0 and stack and int(stack[-1]) > val:
                 stack.pop()
                 k-=1
             
+            # Handles leading zero (1000000, k = 1)
             if stack or val > 0:
                 stack.append(num[i])
         
+        # Handles (12345, k = 3)
         while k > 0 and stack:
             stack.pop()
             k -= 1
