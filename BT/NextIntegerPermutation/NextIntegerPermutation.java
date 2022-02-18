@@ -27,10 +27,8 @@ class Solution {
         if (dropPoint >= 0) {
             int swapPoint = findSwapPoint(arr, dropPoint);
             swap(arr, dropPoint, swapPoint);
-            reverse(arr, dropPoint+1);
-        } else {
-            reverse(arr, 0);
         }
+        reverse(arr, dropPoint+1);
         return arrToInt(arr);
     }
 
