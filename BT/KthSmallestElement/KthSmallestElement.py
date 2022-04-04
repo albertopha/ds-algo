@@ -1,35 +1,36 @@
-import java.util.*;
+class QuickSelect:
 
-class Solution {
-    public int solve(int[] nums, int k) {
-        if (nums.length == 0 || nums.length < k) return -1;
-        return quickSelect(nums, 0, nums.length-1, k);
-    }
+    def __init__(self):
+        pass
 
-    private int quickSelect(int[] nums, int start, int end, int k) {
-        if (start >= end) return nums[start];
-        int p = partition(nums, start, end);
-        if (p == k) return nums[p];
-        if (p < k) return quickSelect(nums, p+1, end, k);
-        return quickSelect(nums, start, p-1, k);
-    }
+    def select(self, nums, start, end, position):
+        if start > end:
+            return nums[start]
+        
+        pivot = self.partition(nums, start, end)
 
-    private int partition(int[] nums, int start, int end) {
-        int pivot = end;
-        int s = start;
-        for (int i = start; i < pivot; i++) {
-            if (nums[i] < nums[pivot]) {
-                swap(nums, s, i);
-                s++;
-            }
-        }
-        swap(nums, s, pivot);
-        return s;
-    }
+        if pivot == position:
+            return nums[pivot]
+        
+        if pivot < position:
+            return self.select(nums, pivot+1, end, position)
 
-    private void swap(int[] nums, int a, int b) {
-        int temp = nums[a];
-        nums[a] = nums[b];
-        nums[b] = temp;
-    }
-}
+        return self.select(nums, start, pivot-1, position)
+
+    def partition(self, nums, start, end):
+        prev, pivot = start, end
+        for i in range(start, pivot):
+            if nums[i] < nums[pivot]:
+                nums[prev], nums[i] = nums[i], nums[prev]
+                prev += 1
+        
+        nums[prev], nums[pivot] = nums[pivot], nums[prev]
+        return prev
+
+class Solution:
+    def solve(self, nums, k):
+        if not nums or len(nums) < k:
+            return 0
+        
+        qs = QuickSelect()
+        return qs.select(nums, 0, len(nums)-1, k)
