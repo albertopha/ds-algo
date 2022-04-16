@@ -1,7 +1,3 @@
-
-
-
-
 type IsBad = (version: number) => boolean
 
 function firstBadVersion(isBad: IsBad) {
@@ -13,7 +9,8 @@ function firstBadVersion(isBad: IsBad) {
     // if none found, return -1
     if (!isBad(version)) return -1;
     if (firstBadVersion > -1) return firstBadVersion;
-    return findFirstBadVersion(isBad, version);
+    firstBadVersion = findFirstBadVersion(isBad, version);
+    return firstBadVersion;
   }
 }
 
