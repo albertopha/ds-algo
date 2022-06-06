@@ -5,9 +5,7 @@ class Solution {
        if (nums.length == 0) return nums;
 
        int[] output = Arrays.copyOfRange(nums, 0, nums.length);
-       for (int i = nums.length-2; i >= 0; i--) {
-           output[i] = output[i] * output[i+1];
-       }
+       for (int i = nums.length-2; i >= 0; i--) output[i] *= output[i+1];
 
        int leftProduct = 1;
        for (int i = 0; i < nums.length; i++) {
