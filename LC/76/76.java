@@ -29,8 +29,8 @@ class Solution {
         
         int l = 0;
         int count = 0;
-        int minLeft = 0,
-            maxRight = s.length()-1;
+        int minLeft = -1,
+            maxRight = s.length();
         Map<Character, Integer> sCounter = new HashMap<>();
         Map<Character, Integer> tCounter = getCounter(t);
         
@@ -60,7 +60,7 @@ class Solution {
                 l++;
             }
         }
-        return s.substring(minLeft, maxRight+1);
+        return (minLeft == -1) ? "" : s.substring(minLeft, maxRight+1);
     }
     
     private Map<Character, Integer> getCounter(String s) {
@@ -70,11 +70,5 @@ class Solution {
             counter.put(chr, counter.getOrDefault(chr, 0) + 1);
         }
         return counter;
-    }
-
-    public void static main() {
-      Solution sol = new Solution();
-      String sol1 = sol.minWindow("ADOBECODEBANC", "ABC");
-      System.out.println(sol1);
     }
 }
