@@ -9,7 +9,7 @@ var findDuplicate = function(paths) {
 };
 
 function extractPath(path, map) {
-    if (typeof path !== 'string' || path.length === 0) return [null, null];
+    if (typeof path !== 'string' || path.length === 0) return {};
     const splitted = path.split(' ');
     const rootPath = splitted[0];
     return splitted.slice(1).reduce((m, file) => {
